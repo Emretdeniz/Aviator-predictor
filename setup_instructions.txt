@@ -1,0 +1,47 @@
+AVIATOR PREDICTOR PRO - KURULUM KILAVUZU
+
+1) **Python 3.8+ Kurulumu**
+   - Python’un **3.8 veya daha üstü** bir sürümünü yüklediğinden emin ol.
+   - Terminalde/Powershell'de şu komutu çalıştırarak sürümü kontrol edebilirsin:
+     ```bash
+     python --version
+     ```
+
+2) **Gerekli Python Kütüphanelerini Yükle**
+   - `requirements.txt` dosyasında bulunan bağımlılıkları yüklemek için:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+3) **Tesseract OCR Kurulumu**
+   - Windows için [Tesseract OCR’ı indir](https://github.com/UB-Mannheim/tesseract/wiki).
+   - Varsayılan yol:
+     ```txt
+     C:\Program Files\Tesseract-OCR\tesseract.exe
+     ```
+   - Eğer farklı bir yere yüklediysen, `aviator_predictor_PRO.py` dosyasında şu satırı güncelle:
+     ```python
+     TESSERACT_PATH = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+     ```
+
+4) **Programın Çalıştırılması**
+   - Terminalde programın bulunduğu klasöre git:
+     ```bash
+     cd "C:\Users\KullanıcıAdı\Desktop\AviatorData_PRO"
+     ```
+   - Programı çalıştır:
+     ```bash
+     python aviator_predictor_PRO.py
+     ```
+
+5) **OCR Bölgesini Ayarla**
+   - Program ilk kez başlatıldığında **Bölge Ayarla** butonuna basarak ekranın çarpan değerini gösteren alanını seç.
+
+6) **Tahmin Modeli ve Veri Kaydı**
+   - Program başlangıçta en az **20 veri satırına** ihtiyaç duyar.
+   - **Çarpan 1.75x, tahmin 2.25x → İyi tahmin olarak işaretlenir.**
+   - **Fark 0.50’den büyükse → Hatalı tahmin olarak düzeltilir.**
+   - Tahmin modeli sürekli **kendini geliştirir**.
+
+7) **Veri Kaydı Klasör Yapısı**
+AviatorData_PRO/ ├── training_data.csv (Tüm veriler) ├── aviator_carpanlar.txt (Log dosyası) ├── aviator_pro_log.txt (Hata kayıtları) ├── aviator_lstm_model.h5 (Tahmin modeli) ├── screenshots/ (OCR görüntüleri) ├── requirements.txt (Bağımlılıklar) ├── setup_instructions.txt (Kurulum rehberi) ├── aviator_predictor_PRO.py (Ana program)
